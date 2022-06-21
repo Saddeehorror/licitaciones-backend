@@ -1,5 +1,4 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { enviroments } from './enviroments';
@@ -7,6 +6,7 @@ import config from './config';
 import * as Joi from 'joi';
 import { DatabaseModule } from './database/database.module';
 import { HttpModule } from '@nestjs/axios';
+import { ProfilesModule } from './profiles/profiles.module';
 
 
 
@@ -23,9 +23,10 @@ import { HttpModule } from '@nestjs/axios';
       }),
     }),
     HttpModule,
-    DatabaseModule
+    DatabaseModule,
+    ProfilesModule
   ],
-  controllers: [AppController],
+  controllers: [],
   providers: [AppService],
 })
 export class AppModule {}
